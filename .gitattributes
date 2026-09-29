@@ -1,0 +1,14 @@
+# Normalise line endings for a package that ships source verbatim.
+# The Host reads lib/index.js as ESM and the client half is evaluated in the
+# browser, so neither wants a platform-specific rewrite on checkout.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+
+# Keep these out of GitHub's language statistics: the vendored diagnostics are
+# tools, not the product.
+tools/*.py linguist-vendored
+docs/*.png linguist-documentation

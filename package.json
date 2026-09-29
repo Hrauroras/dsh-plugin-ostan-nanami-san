@@ -1,0 +1,61 @@
+{
+  "name": "dsh-plugin-ostan-nanami-san",
+  "version": "0.6.0",
+  "description": "OStan Nanami-San — a chibi desktop companion for the DeepSeek Harness GUI: four hand-cut poses, a live step readout of what the agent is doing, following the session you are viewing, work/wait/done/error reactions, affinity, pats, snacks, drag-and-drop.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "desktop-pet",
+    "companion",
+    "chibi",
+    "nanami"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "author": "OSTan",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hrauroras/dsh-plugin-ostan-nanami-san.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hrauroras/dsh-plugin-ostan-nanami-san/issues"
+  },
+  "homepage": "https://github.com/Hrauroras/dsh-plugin-ostan-nanami-san#readme",
+  "scripts": {
+    "test": "node --test tests/host.test.mjs tests/routes.test.mjs tests/client.test.mjs",
+    "check": "node --check lib/index.js && node --check lib/client.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.7-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-runtime"
+      ]
+    }
+  }
+}

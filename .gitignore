@@ -1,0 +1,26 @@
+# Dependencies (this package ships prebuilt and has none, but a checkout may add some)
+node_modules/
+.pnpm-store/
+
+# Python bytecode from the tools/ scripts
+__pycache__/
+*.py[cod]
+
+# Test and diagnostic output
+*.log
+tools/ct*.txt
+tools/*.out
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Local environment
+.env
+.env.*
+!.env.example

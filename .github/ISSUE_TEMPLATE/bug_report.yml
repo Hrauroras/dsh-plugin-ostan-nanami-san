@@ -1,0 +1,73 @@
+name: Bug report
+description: Something about the companion is wrong — a pose, a state, the install.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Two things make a companion bug tractable, and the
+        form asks for both: **which version is live**, and **what the menu counters
+        say**. A frozen picture with a live poll is otherwise nearly impossible to
+        diagnose from the outside.
+
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version
+      description: "Output of `curl http://127.0.0.1:19387/api/ostan-nanami-san/health`"
+      placeholder: '{"ok":true,"version":"0.6.0","sessions":1}'
+    validations:
+      required: true
+
+  - type: input
+    id: dsh
+    attributes:
+      label: DSH version and profile
+      description: The app version, and which profile actually boots (`$env:DSH_PROFILE`).
+      placeholder: '0.2.0-rc.2, profile desktop'
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens, and what you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: counters
+    attributes:
+      label: The menu counters
+      description: |
+        Right-click the companion and copy the `轮询 / 应用 / 渲染` line. These three
+        numbers separate "the poll died" from "the request failed" from "the state
+        updated but the render did not happen".
+      placeholder: '轮询 128 · 应用 128 · 渲染 131'
+    validations:
+      required: false
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: Anything the error card said
+      description: |
+        If a pink `⚠ 奈奈酱出错了` card is on screen, paste its second line (the
+        message and stack). React's minified codes are translated at
+        https://reactjs.org/docs/error-decoder.html — include the number.
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Please be specific about whether it needed a click, a page refresh, or a DSH
+        restart to appear — that distinction has decided more than one bug here.
+      placeholder: |
+        1. Hide the companion (right-click → 隐藏桌宠)
+        2. Summon it again with the 🐾 button
+        3. It no longer reacts to state changes...
+    validations:
+      required: false

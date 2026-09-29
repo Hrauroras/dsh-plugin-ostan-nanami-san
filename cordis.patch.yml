@@ -1,0 +1,7 @@
+# dsh-plugin-ostan-nanami-san — inserts its own Host + Web-client entry into the
+# active profile's plugin roster. It replaces no shipped component: the Host half
+# only adds /api/ostan-nanami-san/* and /ostan-nanami-san-assets/* routes, and the
+# Web half mounts one floating companion into the frame overlay.
+- insert:
+    - id: ostan-nanami-san
+      name: 'dsh-plugin-ostan-nanami-san'

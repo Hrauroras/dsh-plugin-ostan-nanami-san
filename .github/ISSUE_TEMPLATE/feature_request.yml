@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest a pose, an interaction, or a state she should react to.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should she do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: When would it matter?
+      description: |
+        The states this plugin reacts to are deliberately few and are all *boundaries*
+        (a turn, a question, a tool's name). Chat text, tool arguments and file
+        contents are out of bounds by design — if your idea needs to read any of
+        those, say so explicitly, because that is a design discussion rather than a
+        patch.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Privacy boundary
+      options:
+        - label: This idea can be built from turn / question / tool-name boundaries alone.
+          required: false
